@@ -1,0 +1,30 @@
+{
+	"name": "@konfirm/reference",
+	"version": "1.0.0-beta.1",
+	"description": "Easily work with multi-/singleton instances",
+	"main": "source/Reference.js",
+	"module": "dist/reference.mjs",
+	"scripts": {
+		"test": "./node_modules/.bin/lab -vcl",
+		"dist": "./node_modules/.bin/rollup --config rollup.config.js"
+	},
+	"keywords": [
+		"singleton",
+		"factory"
+	],
+	"author": "Rogier Spieker <rogier+npm@konfirm.eu>",
+	"license": "MIT",
+	"devDependencies": {
+		"@konfirm/labrat": "^2.0.2",
+		"rollup": "^1.22.0",
+		"rollup-plugin-buble": "^0.19.8",
+		"rollup-plugin-commonjs": "^10.1.0",
+		"rollup-plugin-node-builtins": "^2.1.2",
+		"rollup-plugin-node-resolve": "^5.2.0",
+		"rollup-plugin-replace": "^2.2.0",
+		"rollup-plugin-terser": "^5.1.2"
+	},
+	"dependencies": {
+		"@ungap/global-this": "^0.3.1"
+	}
+}
