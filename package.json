@@ -12,6 +12,11 @@
 		"singleton",
 		"factory"
 	],
+	"files": [
+		"dist/*",
+		"source/*",
+		"rollup.config.js"
+	],
 	"author": "Rogier Spieker <rogier+npm@konfirm.eu>",
 	"license": "MIT",
 	"devDependencies": {
