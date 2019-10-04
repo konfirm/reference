@@ -19,6 +19,9 @@
 	],
 	"author": "Rogier Spieker <rogier+npm@konfirm.eu>",
 	"license": "MIT",
+	"engines": {
+		"node": ">= 8.0.0"
+	},
 	"devDependencies": {
 		"@konfirm/labrat": "^2.0.2",
 		"rollup": "^1.22.0",
