@@ -1,7 +1,24 @@
 language: node_js
+os: linux
+dist: xenial
 node_js:
-    - '8'
-    - '9'
-    - '10'
-    - '11'
-    - '12'
+  - 8
+  - 9
+  - 10
+  - 11
+  - 12
+  - 13
+  - 14
+jobs:
+  include:
+    - stage: npm release
+      if: tag IS present
+      node_js: 14
+      deploy:
+        provider: npm
+        email: rogier+npm@konfirm.eu
+        on:
+          branch: master
+          tags: true
+        api_key:
+          secure: C4wF1MKSM082tkG4UKzHrCRnb5L9ZQ8boFOPBvX9x6Mb0jPBK0dq1vkNxMHM5EVGNs0gnT1QkVgueX7zNk02gHAjV0pLj0HmkzeBJHz/D/WwObxlXasbQtslMuJxWqszl7jQ1n7Jz9OU+SJgngW5ADQt0DuIjtUYepo0gv2jSe4e5dOLB2L5RStxsw0hdqv8vGIRQp5Eiv2vpHbtGK9Ld8e+mf1ioHFErQDnFMOu/4gBsgVcNewhNX/BU4nRQfgaLMHW6dXy2HDVw/ozGcdmngr/I3qWx01g/+SjbqmsS6KFNL6vcj1bCKBPIDsXDc74qu5ypRoDk/zfexYeMxv7UDyncz30PXXJ8ZhYs/qpz/yED64IuPNeA6b97XHUO74FpPlUnAoftw4/iZKRBHg8ietXlGPvMUx1zwgl2RtOr0eKGfhiZbx0B+8NHTz+KoxPowT1lLo6P3EPP2sR2Jzsf4Apf04iHVmoLKGmUBZThOW5DHMv7DCl6BDwDanSEH36IMemlmOX7sYKZTuq3aMpLwZPD5W2u4zm85TH/UPH5v4CT1HpqVvoLQ7HTb/py0XxNN9OYhLqTWvvK7+DehbOeUwvQagCe5mHpkT89QsZeo133dkM+keDmt5H/FNp21rM50Exb1EU+ETEu3LzLtytthzugvcOs8Z+dVZrCXzNTCM=
