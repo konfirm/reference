@@ -1,11 +1,10 @@
 import Path from 'path';
 import Crypto from 'crypto';
 
-import common from 'rollup-plugin-commonjs';
-import resolve from 'rollup-plugin-node-resolve';
-import builtin from 'rollup-plugin-node-builtins';
-import replace from 'rollup-plugin-replace';
-import buble from 'rollup-plugin-buble';
+import buble from '@rollup/plugin-buble';
+import common from '@rollup/plugin-commonjs';
+import resolve from '@rollup/plugin-node-resolve';
+import replace from '@rollup/plugin-replace';
 import { terser } from 'rollup-plugin-terser';
 
 import Package from './package.json';
@@ -27,7 +26,6 @@ function plugins({ transpile, minify }) {
 	return [
 		common(),
 		resolve(),
-		builtin(),
 		replace({
 			...Package,
 			signature: hash(name, Package.version),
@@ -57,11 +55,12 @@ function dist(input, name, formats) {
 			.map(({ format, ext }) => ({
 				name,
 				format,
+				exports: 'auto',
 				file: `dist/${base}.${ext}`
 			}))
 	}));
 }
 
 export default []
-	.concat(dist(Package.main, name, ['cjs', 'umd', 'iife']))
-	.concat(dist(Package.main, name, ['esm']));
+	.concat(dist('source/Reference.js', name, ['cjs', 'umd', 'iife']))
+	.concat(dist('source/Reference.js', name, ['esm']));
