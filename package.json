@@ -1,6 +1,6 @@
 {
 	"name": "@konfirm/reference",
-	"version": "1.0.0-beta.1",
+	"version": "1.0.0",
 	"description": "Easily work with multi-/singleton instances",
 	"main": "dist/reference.cjs.min.js",
 	"module": "dist/reference.min.mjs",
